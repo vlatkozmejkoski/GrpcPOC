@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+option csharp_namespace = "Protos";
+	
+service Account {
+	rpc AddUser (AddUserRequest) returns (AddUserResponse);
+	rpc GetUser (GetUserRequest) returns (GetUserResponse);
+}
+
+message GetUserRequest {
+	string name = 1;
+}
+
+message GetUserResponse {
+	string name = 1;
+	string userId = 2;
+}
+
+message AddUserRequest {
+	string name = 1;
+	string email = 2;
+	UserType userType = 3;
+
+	enum UserType {
+		USER = 0;
+		ADMIN = 1;
+		MODERATOR = 2;
+	}
+}
+
+message AddUserResponse {
+	string message = 1;
+	string userId = 2;
+}

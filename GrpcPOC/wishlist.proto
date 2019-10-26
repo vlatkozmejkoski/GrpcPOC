@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option csharp_namespace = "Protos";
+
+service Wishlist {
+	rpc AddWish (AddWishRequest) returns (AddWishResponse);
+}
+
+message AddWishRequest {
+	Product product = 1;
+	int32 quantity = 2;
+	bytes file = 3;
+
+	message Product {
+		string name = 1;
+		string category = 2;
+	}
+}
+
+message AddWishResponse {
+	string message = 1;
+}
