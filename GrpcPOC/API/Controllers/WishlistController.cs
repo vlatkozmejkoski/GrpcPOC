@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Grpc.Core;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Protos;
@@ -24,6 +25,13 @@ namespace API.Controllers
         public AddWishResponse AddWish(AddWishRequest request)
         {
             return _wishlistClient.AddWish(request);
+        }
+
+        [HttpGet]
+        public IAsyncEnumerable<GetWishesResponse> GetWishes()
+        {
+            var wishes = _wishlistClient.GetWishes(new Google.Protobuf.WellKnownTypes.Empty());
+            return wishes.ResponseStream.ReadAllAsync();
         }
     }
 }

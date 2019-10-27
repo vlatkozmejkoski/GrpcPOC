@@ -1,9 +1,12 @@
 syntax = "proto3";
 
 option csharp_namespace = "Protos";
+import "google/protobuf/empty.proto";
+
 
 service Wishlist {
 	rpc AddWish (AddWishRequest) returns (AddWishResponse);
+	rpc GetWishes (google.protobuf.Empty) returns (stream GetWishesResponse);
 }
 
 message AddWishRequest {
@@ -19,4 +22,10 @@ message AddWishRequest {
 
 message AddWishResponse {
 	string message = 1;
+}
+
+message GetWishesResponse {
+	string name = 1;
+	string category = 2;
+	int32 quantity = 3;
 }
