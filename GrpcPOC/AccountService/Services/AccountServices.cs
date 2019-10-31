@@ -3,6 +3,7 @@ using Protos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace AccountService.Services
@@ -10,14 +11,17 @@ namespace AccountService.Services
     public class AccountServices : Account.AccountBase
     {
         public List<Tuple<string, Guid>> Users { get; set; } = new List<Tuple<string, Guid>>();
+        private readonly HttpClient _client;
 
-        public AccountServices()
+        public AccountServices(HttpClient client)
         {
+            _client = client;
             Users.Add(new Tuple<string, Guid>("Vlatko", Guid.NewGuid()));
         }
 
-        public override Task<AddUserResponse> AddUser(AddUserRequest request, ServerCallContext context)
+        public override async Task<AddUserResponse> AddUser(AddUserRequest request, ServerCallContext context)
         {
+            var c = await _client.GetAsync("/test").ConfigureAwait(false);
             var userId = Guid.NewGuid();
             Users.Add(new Tuple<string, Guid>(request.Name, userId));
 
@@ -26,7 +30,7 @@ namespace AccountService.Services
                 Message = $"Successfully added user {request.Name}, with email {request.Email}!",
                 UserId = userId.ToString()
             };
-            return Task.FromResult(response);
+            return await Task.FromResult(response).ConfigureAwait(false);
         }
 
         public override Task<GetUserResponse> GetUser(GetUserRequest request, ServerCallContext context)

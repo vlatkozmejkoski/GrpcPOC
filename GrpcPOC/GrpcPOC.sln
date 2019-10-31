@@ -5,15 +5,17 @@ VisualStudioVersion = 16.0.29418.71
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccountService", "AccountService\AccountService.csproj", "{E6024B24-9724-4D57-B1BA-6AB0CC957291}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{6E216FD8-9C78-4DC5-BAB1-4E0F660EFE14}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "API\API.csproj", "{6E216FD8-9C78-4DC5-BAB1-4E0F660EFE14}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WishlistService", "WishlistService\WishlistService.csproj", "{A2FD2E88-7E39-42AE-BD90-88C4B47CCE0D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WishlistService", "WishlistService\WishlistService.csproj", "{A2FD2E88-7E39-42AE-BD90-88C4B47CCE0D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Protos", "Protos", "{5CE63EA6-A428-446C-98A8-7D290612A20F}"
 	ProjectSection(SolutionItems) = preProject
 		account.proto = account.proto
 		wishlist.proto = wishlist.proto
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExternalServiceViaHTTP1Protocl", "ExternalServiceViaHTTP1Protocl\ExternalServiceViaHTTP1Protocl.csproj", "{9BFBFAF7-A36B-4A14-BA04-5812CF43477E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{A2FD2E88-7E39-42AE-BD90-88C4B47CCE0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2FD2E88-7E39-42AE-BD90-88C4B47CCE0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2FD2E88-7E39-42AE-BD90-88C4B47CCE0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BFBFAF7-A36B-4A14-BA04-5812CF43477E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BFBFAF7-A36B-4A14-BA04-5812CF43477E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BFBFAF7-A36B-4A14-BA04-5812CF43477E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BFBFAF7-A36B-4A14-BA04-5812CF43477E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

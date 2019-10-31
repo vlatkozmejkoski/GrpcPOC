@@ -12,7 +12,7 @@ service Wishlist {
 message AddWishRequest {
 	Product product = 1;
 	int32 quantity = 2;
-	bytes file = 3;
+	string test = 3;
 
 	message Product {
 		string name = 1;
